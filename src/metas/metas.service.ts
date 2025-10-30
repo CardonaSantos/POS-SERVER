@@ -412,10 +412,9 @@ export class MetasService {
         },
         where: {
           usuarioId: userId,
+          estado: 'ABIERTO',
         },
         include: {
-          // sucursal: true,
-          // usuario: true,
           DepositoCobro: true,
           sucursal: {
             select: {
@@ -442,6 +441,7 @@ export class MetasService {
         },
         where: {
           usuarioId: userId,
+          estado: 'ABIERTO',
         },
         select: {
           id: true,

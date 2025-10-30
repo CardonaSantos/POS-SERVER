@@ -131,6 +131,14 @@ export class NotificationService {
 
   async getMyNotifications(idUser: number) {
     try {
+      // console.log('El id de usuario debería ser pos es:', idUser);
+      // let x = await this.prismaService.usuario.findUnique({
+      //   where: {
+      //     id: idUser,
+      //   },
+      // });
+      // console.log('El usuario es: ', x);
+
       const notificaciones =
         await this.prismaService.notificacionesUsuarios.findMany({
           where: {
@@ -154,6 +162,10 @@ export class NotificationService {
         referenciaId: n.notificacion.referenciaId,
         fechaCreacion: n.notificacion.fechaCreacion,
       }));
+      // console.log(
+      //   'las notifiaciones del usuario deberían ser: ',
+      //   notificacionesSimplificadas,
+      // );
 
       return notificacionesSimplificadas;
     } catch (error) {
